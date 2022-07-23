@@ -1,0 +1,151 @@
+:root {
+    --size-clock: 300px;
+    --size-load: 60px;
+    --color-load: tomato;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+.clock-container {
+    flex-direction: column;
+    background-color: mediumspringgreen;
+}
+.container-loader {
+    background-color: mediumspringgreen;
+}
+h1 {
+    font-family: monospace;
+    font-weight: bold;
+    margin: 12px;
+}
+.clock {
+    width: var(--size-clock);
+    height: var(--size-clock);
+    position: relative;
+    background-color: #ccc;
+    padding: 8px;
+    border: 2px solid #333;
+    border-radius: 50%;
+}
+
+.clock .item {
+    height: 140px;
+    top: 27%;
+    left: 50%;
+    transform: rotate(var(--rotate)) translateY(-50%) translateX(-50%);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+
+.clock .item .text {
+    transform: rotate(calc(360deg - var(--rotate)));
+    position: absolute;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.clockBox {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    background-color: #555;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+.clockBox__hours .hours {
+    width: 10px;
+    height: 90px;
+    background-color: #555;
+    position: absolute;
+    bottom: 50%;
+}
+.clockBox__hours .hours::before {
+    content: '';
+    background-color: #555;
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    transform: rotate(45deg) translate(50%, 50%);
+    bottom: 100%;
+}
+.clockBox__minute .minute {
+    width: 8px;
+    height: 100px;
+    background-color: #555;
+    position: absolute;
+    bottom: 50%;
+}
+.clockBox__minute .minute::before {
+    content: '';
+    background-color: #555;
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    transform: rotate(45deg) translate(50%, 50%);
+    bottom: 100%;
+}
+
+.clockBox__second .second {
+    width: 4px;
+    height: 110px;
+    background-color: #555;
+    position: absolute;
+    bottom: 50%;
+}
+.clockBox__second .second::before {
+    content: '';
+    background-color: #555;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    transform: rotate(45deg) translate(37%, 50%);
+    bottom: 100%;
+}
+/* loader */
+.loader-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loader-item {
+    width: var(--size-load);
+    height: var(--size-load);
+    border: 8px solid #333;
+    margin-left: 24px;
+    border-radius: 50%;
+    animation: load 1s linear infinite;
+}
+.loader-item:first-child {
+    border-left-color: var(--color-load);
+}
+.loader-item:nth-child(2) {
+    border-top-color: var(--color-load); 
+}
+.loader-item:last-child {
+    border-right-color: var(--color-load);
+}
+
+@keyframes load {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
