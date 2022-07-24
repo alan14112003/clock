@@ -10,6 +10,7 @@ window.onload = () => {
 }
 // xử lí đồng hồ 
 const audio = document.querySelector('audio');
+audio.loop = true;
 const audioOpen = document.querySelector('.clock-container');
 audioOpen.onclick = ()=> {
     audioOpen.classList.toggle('audioOpen');
