@@ -9,6 +9,16 @@ window.onload = () => {
     document.querySelector('.clock-container').style.display = 'flex';
 }
 // xử lí đồng hồ 
+const audio = document.querySelector('audio');
+const audioOpen = document.querySelector('.clock-container');
+audioOpen.onclick = ()=> {
+    audioOpen.classList.toggle('audioOpen');
+    if(audioOpen.classList.contains('audioOpen')) 
+        audio.play();
+    else 
+        audio.pause();
+}
+
 let date = new Date();
 let seconds, minutes, hours;
 seconds = date.getSeconds();
@@ -34,5 +44,5 @@ setInterval(() => {
         hours = 0;
     }
     clockBoxSeconds.style = 'transform: translate(-50%, -50%) rotate(' + seconds * 6 + 'deg)';
-    console.log(new Date().getHours() +' '+ new Date().getMinutes() +' '+ new Date().getSeconds());
+    // console.log(new Date().getHours() +' '+ new Date().getMinutes() +' '+ new Date().getSeconds());
 }, 1000);
