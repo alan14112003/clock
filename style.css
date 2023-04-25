@@ -108,6 +108,7 @@ h1 {
     position: absolute;
     bottom: 50%;
 }
+
 .clockBox__second .second::before {
     content: '';
     background-color: #555;
@@ -139,6 +140,17 @@ h1 {
 }
 .loader-item:last-child {
     border-right-color: var(--color-load);
+}
+
+.box_time {
+    display: flex;
+    margin-top: 12px;
+    padding: 8px;
+    background-color: #eee;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 5px;
 }
 
 @keyframes load {
